@@ -1,0 +1,404 @@
+version: "2.0"
+
+nlu:
+- intent: enter_number
+  examples: |
+    - I want a number.
+    - number
+    - enter my number
+    - keep my number
+- intent: offer1_selected
+  examples: |
+    - I want to select (plan1)[offers].
+    - I want to select (plan 1)[offers].
+    - I want to select (Plan1)[offers].
+    - I want to select (Plan 1)[offers].
+    - I want to choose (plan1)[offers].
+    - I want to choose (plan 1)[offers].
+    - I want to choose (Plan1)[offers].
+    - I want to choose (Plan 1)[offers].
+    - I want to buy (plan1)[offers].
+    - I want to buy (plan 1)[offers].
+    - I want to buy (Plan1)[offers].
+    - I want to buy (Plan 1)[offers].
+    - (plan1)[offers].
+    - (plan 1)[offers].
+    - (Plan1)[offers].
+    - (Plan 1)[offers].
+
+- intent: offer2_selected
+  examples: |
+    - I want to select (plan2)[offers].
+    - I want to select (plan 2)[offers].
+    - I want to select (Plan2)[offers].
+    - I want to select (Plan 2)[offers].
+    - I want to choose (plan2)[offers].
+    - I want to choose (plan 2)[offers].
+    - I want to choose (Plan2)[offers].
+    - I want to choose (Plan 2)[offers].
+    - I want to buy (plan2)[offers].
+    - I want to buy (plan 2)[offers].
+    - I want to buy (Plan2)[offers].
+    - I want to buy (Plan 2)[offers].
+    - (plan2)[offers].
+    - (plan 2)[offers].
+    - (Plan2)[offers].
+    - (Plan 2)[offers].
+
+- intent: offer3_selected
+  examples: |
+    - I want to select (plan3)[offers].
+    - I want to select (plan 3)[offers].
+    - I want to select (Plan3)[offers].
+    - I want to select (Plan 3)[offers].
+    - I want to choose (plan3)[offers].
+    - I want to choose (plan 3)[offers].
+    - I want to choose (Plan3)[offers].
+    - I want to choose (Plan 3)[offers].
+    - I want to buy (plan3)[offers].
+    - I want to buy (plan 3)[offers].
+    - I want to buy (Plan3)[offers].
+    - I want to buy (Plan 3)[offers].
+    - (plan3)[offers].
+    - (plan 3)[offers].
+    - (Plan3)[offers].
+    - (Plan 3)[offers].
+
+- intent: sim_select
+  examples: | 
+    - I want to select [e-sim](sim)
+    - I want to select [physical](sim) sim.
+    - [e-sim](sim)
+    - [physical](sim) sim
+    - I want [e-sim](sim).
+    - I want [physical](sim) sim.
+    - order [e-sim](sim) for me.
+    - order [physical](sim) sim for me.
+    - want [e-sim](sim).
+    - want [physical](sim) sim.
+    - I want a sim.
+    - I want to buy a sim
+    - I want to buy an [e-sim](sim)
+    - I want to buy a [pyhsical](sim) sim.
+    - help me in finding sim
+    - sim
+    - SIM
+    - buy SIM
+    - have sim
+
+
+- intent: check_balance
+  examples: |
+    - How much do I have on my  account?
+    - How much money is there in my account?
+    - Balance in my account?
+    - I want to check my balance.
+    - balance
+    - How much do I have?
+    - How much money is there?
+    - What's my account balance?
+    - Show me my balance.
+    - Tell me how much money I have
+    - account
+    - check balance
+    - check my balance
+    - What's the balance in my account?
+    - Can you show me how much money I have in my account?
+    - I'd like to check my balance.
+    - Please tell me the balance in my account.
+    - How much do I have in my account?
+    - my balance
+    - money I have
+    - money
+    - money in my account
+    - how much money is there in my accounts.
+    - money left account.
+    - money in my account?
+    - I want to check my money.
+    - Show me my money.
+    - check money
+    - check my money
+    - What's the money in my account?
+    - I'd like to check my balance.
+    - my money
+    - bal
+    - show bal
+
+    
+- intent: tell_number
+  examples: |
+    - my mobile number is [123456789012345](number).
+    - [123456789012345](number)
+    - [123456789012345](number) is my mobile number.
+    - Here's my phone number: [34567890123456](number).
+    - Phone number: [98765432109876](number).
+    - Mobile ID: [11223344556677](number).
+    - my phone number is [123333333](number)
+    - my contact is [1232432](number)
+    - my number is [234356547567](number)
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - menu
+    - men
+    - menuuu
+    - main
+    - main menu
+    - mai menu
+    - meeenu
+    - mmenu
+    - good morning
+    - morning
+    - mrng
+    - mornin
+    - goodmorning
+    - good afternoon
+    - afternoon
+    - noon
+    - goodafternoon
+    - good evening
+    - evening
+    - eve
+    - goodevening
+    - good night
+    - night
+    - goodnight
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - good
+    - I am good
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: raise_ticket
+  examples: |
+    - I need to raise a ticket.
+    - Can you help me create a support ticket?
+    - I want to report an issue.
+    - Please assist me with opening a ticket.
+    - I'd like to log a complaint.
+    - I'd like to create a support ticket.
+    - My issue needs attention. Can I raise a ticket?
+    - Help! How do I submit a ticket?
+    - I want to report a problem. How can I open a ticket?
+    - Please assist me with filing a ticket.
+    - I am not able to check my balance
+    - I am not able to recall the account number
+    - not able to fetch my balance
+    - I am unable to check my account balance.
+    - I can't remember my account number.
+    - Fetching my balance is not working.
+    - receiving error
+    - i have an issue
+    - help me
+    - need help
+    - encountered an issue
+    - i have a problem
+    - problem faced
+    - getting a problem
+    - need help in this problem
+    - kindly help
+    - please help
+    - i need help
+    - need help in issue
+    - help in issue
+    - solve the issue
+    - solve the problem
+    - need answer
+    - need response
+    - answer this
+    - answer the issue i am getting
+    - answer the problem i am facing
+    - respond please
+    - kindly respond
+    - kindly answer
+    - kindly solve my issue
+    - My balance inquiry is not working.
+    - I'm having trouble retrieving my account balance.
+    - The system isn't allowing me to check my balance.
+    - I've forgotten my account number, and I need assistance.
+    - I need assistance.
+    - I need assistance in solving in this issue
+    - I need assistance in solving in this problem
+    - solve my prob plz
+    - facing a challenge
+    - challenge
+    - having a challenge
+
+- intent : transaction
+  examples: |
+    - I want to check my history
+    - I want to check my transactions
+    - I want to check my call history
+    - I want to check call logs
+    - show my history
+    - show my transactions
+    - show my history transaction
+    - show my transaction history
+    - show my call logs
+    - tell my history
+    - tell my transactions
+    - tell my history transaction
+    - tell my transaction history
+    - tell my call logs
+    - check my call balance history
+    - check my call balance transaction history
+    - check my call balance logs
+    - show my call balance history
+    - show my call balance transaction history
+    - show my call balance logs
+    - tell my call balance history
+    - tell my call balance transaction history
+    - tell my call balance logs
+    - call balance logs
+    - logs
+    - call history
+    - transaction history
+    - Last 5 logs
+    - 5 logs
+    - 5 transactions
+    - last 5 history
+    - last call balance
+    - last 5 call history
+
+- intent: ticket_status
+  examples: |
+    - what is the status of my ticket
+    - what is the status of my issue
+    - what is the status of my problem
+    - what is the status of my complaint
+    - how much time will it take to solve my issue
+    - how much time will it take to solve my ticket
+    - how much time will it take to solve my problem
+    - how much time will it take to solve my complaint
+    - how long will it take
+    - how long will it take to solve my issue
+    - how long will it take to solve my problem
+    - how long will it take to solve my complaint
+    - how long will it take to solve my ticket
+    - is issue resolved?
+    - is problem resolved?
+    - is ticket resolved?
+    - is complaint resolved?
+
+- intent: user_change
+  examples: |
+    - I want to change my number.
+    - switch number
+    - I want to check balance of other number
+    - I want to check transaction of other number
+    - new number 
+    - new user
+    - I want to check balance of other user
+    - I want to check transaction of other user
+    - change to different number
+    - check different number balance
+    - check new number
+    - check new number transaction
+    - check different number transaction
+    - change account
+    - switch account
+    - check balance of different account
+    - check transaction of different account
+    - different number
+    - wrong number input
+    - mistake in number
+    - by mistake entered wrong number
+    - user change
+    - mobile number change
+    - phone number change
+    - my new phone number is [1234556789](number)
+    - new mobile number is [1234567890](number)
+    - check balance for my new number [1234567890](number)
+    - change number to [1234567890](number)
+    - check balance for my different number [1234567890](number)
+    - switch number to [1234567890](number) number
+    - switch account to [1234567890](number) number
+    - I want to change my account type.
+    - switch account type
+    - entered wrong type
+    - entered wrong account type
+    - wrong account type
+    - mistake in account type
+    - mistake in entering acc type
+    - different account type
+    - change to different account type
+    - check different account type
+    - by mistake entered wrong account type
+    - change account
+    - switch account 
+    - change account 
+  
+    
+
+

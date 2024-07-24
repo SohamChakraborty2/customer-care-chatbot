@@ -1,0 +1,142 @@
+version: "2.0"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+  
+  - rule: menu
+    steps:
+      - intent: greet
+      - action: utter_menu
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  
+  - rule: Submit information form
+    condition:
+      - active_loop: info_form
+    steps:
+      - action: info_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_info_form
+
+  - rule: Activate raise ticket form
+    steps:
+      - intent: raise_ticket
+      - action: ticket_form
+      - active_loop: ticket_form
+
+
+  - rule: Submit raise ticket form
+    condition:
+      - active_loop: ticket_form
+    steps:
+      - action: ticket_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_ticket_form
+
+  - rule: Activate sim type form
+    steps:
+      - intent: sim_select
+      - action: sim_type_form
+      - active_loop: sim_type_form
+
+
+  - rule: Submit sim type form
+    condition:
+      - active_loop: sim_type_form
+    steps:
+      - action: sim_type_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_sim_price
+
+  - rule: Submit sim confirmation form
+    condition:
+      - active_loop: confirm_sim_selection_form
+    steps:
+      - action: confirm_sim_selection_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_sim_type_form
+
+  - rule: select plan submit
+    condition:
+      - active_loop: plan_form
+    steps:
+      - action: plan_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_set_price
+
+  - rule: confirmation of plan
+    condition:
+      - active_loop: confirm_plan_selection_form
+    steps:
+      - action: confirm_plan_selection_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_plan_form
+  
+  - rule: choosing number for sim
+    condition:
+      - active_loop: number_form
+    steps:
+      - action: number_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_number_form
+  
+  - rule: setting the sim number
+    condition:
+      - active_loop: sim_number_form
+    steps:
+      - action: sim_number_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_sim_number_form
+
+  - rule: address form
+    condition:
+      - active_loop: address_form
+    steps:
+      - action: address_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_address_form
+
+  - rule: bill form
+    condition:
+      - active_loop: bill_form
+    steps:
+      - action: bill_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_bill_form
+
+  - rule: payment form
+    condition:
+      - active_loop: payment_form
+    steps:
+      - action: payment_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_payment_form

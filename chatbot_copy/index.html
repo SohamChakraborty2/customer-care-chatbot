@@ -1,0 +1,76 @@
+<html>
+    <body>
+      <style>
+  
+        /* Change the fill color of the robot avatar for the message box */
+        
+
+        .rw-conversation-container .rw-header {
+          background-color: #5350C4;
+        
+        }
+        
+
+        .rw-messages-container .rw-message .rw-client {
+          background-color: #5350C4;
+          color: #ffffff;
+        }
+        .rw-messages-container .rw-message .rw-response {
+          background-color: #E7E6FF;
+        }
+        .rw-launcher {
+          background-color: #5350C4;
+        }
+        .rw-conversation-container .rw-reply {
+          background-color: #5350C4;border: 1px solid #5350C4 ;
+        
+        }
+      </style>
+        <script>
+        
+
+          
+        //Function to clear chat history
+        function clearChatOnRefresh() {
+    
+          sessionStorage.clear();
+          localStorage.clear(); 
+        }
+
+        
+        window.onload = clearChatOnRefresh;
+        
+        !(function () {
+            let e = document.createElement("script"),
+              t = document.head || document.getElementsByTagName("head")[0];
+            (e.src =
+              "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+              // Replace 1.x.x with the version that you want
+              (e.async = !0),
+              (e.onload = () => {
+                window.WebChat.default(
+                  {
+
+                    customData: { language: "en" },
+                    initPayload: '/greet',
+                    autoClearCache: true,
+                    socketUrl: "http://localhost:5005",
+                    title: "CareCompanion",
+                    profileAvatar: "./assets/image.png",
+                    openLauncherImage: "./assets/image.png",
+                    showFullScreenButton: true,
+                    fullScreenMode:true,
+      
+                    showMessageDate:true,
+                    inputTextFieldHint: "What's in your mind?...",
+                    
+                    // add other props here
+                  },
+                  null
+                );
+              }),
+              t.insertBefore(e, t.firstChild);
+          })();
+          </script>
+    </body>
+</html>
