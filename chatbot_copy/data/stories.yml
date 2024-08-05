@@ -1,0 +1,146 @@
+version: "2.0"
+
+stories:
+- story: balance_check_form_1
+  steps:
+  - intent: check_balance 
+  - action: action_balance_enquiry
+
+- story: balance_check_form_2
+  steps:
+  - action: utter_menu2
+  - intent: check_balance 
+  - action: action_balance_enquiry
+
+- story: transaction_form_1
+  steps:
+  - intent: transaction
+  - action: action_transaction_enquiry
+
+- story: transaction_form_2
+  steps:
+  - action: utter_menu2
+  - intent: transaction
+  - action: action_transaction_enquiry
+
+- story: change info
+  steps:
+  - intent: user_change 
+  - action: action_change_info
+
+- story: ticket_status_story
+  steps:
+  - intent: ticket_status
+  - action: action_ticket_status
+
+- story: ticket_status_story2
+  steps:
+  - action: utter_menu2
+  - intent: ticket_status
+  - action: action_ticket_status
+
+- story: raise_ticket_form_1
+  steps:
+  - intent: raise_ticket
+  - action: ticket_form
+  - active_loop: ticket_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - phone_number: true
+  - slot_was_set:
+    - requested_slot: account_type
+  - slot_was_set:
+    - account_type: True
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: true
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: True
+  - slot_was_set:
+    - requested_slot: issue_message
+  - slot_was_set:
+    - issue_message: true
+  - slot_was_set:
+    - requested_slot: confirm_details
+  - slot_was_set:
+    - confirm_details: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_ticket_form
+
+- story: raise_ticket_form_2
+  steps:
+  - action: utter_menu2
+  - intent: raise_ticket
+  - action: ticket_form
+  - active_loop: ticket_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - phone_number: true
+  - slot_was_set:
+    - requested_slot: account_type
+  - slot_was_set:
+    - account_type: True
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: true
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: True
+  - slot_was_set:
+    - requested_slot: issue_message
+  - slot_was_set:
+    - issue_message: true
+  - slot_was_set:
+    - requested_slot: confirm_details
+  - slot_was_set:
+    - confirm_details: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_ticket_form
+
+- story: sim_type_form_1
+  steps:
+  - intent: sim_select
+  - action: sim_type_form
+  - active_loop: sim_type_form
+  - slot_was_set:
+    - requested_slot: sim_type
+  - slot_was_set:
+    - phone_number: true
+  - slot_was_set:
+    - requested_slot: zipcode
+  - slot_was_set:
+    - account_type: True
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_sim_price
+
+- story: sim_type_form_2
+  steps:
+  - action: utter_menu2
+  - intent: sim_select
+  - action: sim_type_form
+  - active_loop: sim_type_form
+  - slot_was_set:
+    - requested_slot: sim_type
+  - slot_was_set:
+    - phone_number: true
+  - slot_was_set:
+    - requested_slot: zipcode
+  - slot_was_set:
+    - account_type: True
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_sim_price

@@ -1,0 +1,550 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - check_balance
+  - tell_number
+  - raise_ticket
+  - nlu_fallback
+  - transaction
+  - ticket_status
+  - user_change
+  - sim_select
+  - offer1_selected
+  - offer2_selected
+  - offer3_selected
+  - enter_number
+
+entities:
+- email
+- number
+- sim
+- offers
+
+
+slots:
+  sim_type:
+    type: text
+    influence_conversation: false
+  zipcode:
+    type: text
+    influence_conversation: false
+  latest_intent:
+    type: text
+    influence_conversation: false
+  account_type:
+    type: text
+    influence_conversation: false
+  issue_message:
+    type: text
+    influence_conversation: false
+  email:
+    type: text
+    influence_conversation: false
+  phone_number:
+    type: text
+    influence_conversation: false
+  name:
+    type: text
+    influence_conversation: false
+  confirm_details:
+    type: text
+    influence_conversation: false
+  confirm_details_info:
+    type: text
+    influence_conversation: false
+  confirm_sim_type:
+    type: text
+    influence_conversation: false
+  offer:
+    type: text
+    influence_conversation: false
+  sim_price:
+    type: text
+    influence_conversation: false
+  plan_price:
+    type: text
+    influence_conversation: false
+  confirm_plan:
+    type: text
+    influence_conversation: false
+  number_option:
+    type: text
+    influence_conversation: false
+  sim_number:
+    type: text
+    influence_conversation: false
+  confirm_sim_number:
+    type: text
+    influence_conversation: false
+  buyer_email:
+    type: text
+    influence_conversation: false
+  buyer_name:
+    type: text
+    influence_conversation: false
+  address:
+    type: text
+    influence_conversation: false
+  confirm_address:
+    type: text
+    influence_conversation: false
+  confirm_bill:
+    type: text
+    influence_conversation: false
+  card_number:
+    type: text
+    influence_conversation: false
+  name_on_card:
+    type: text
+    influence_conversation: false
+  expiry:
+    type: text
+    influence_conversation: false
+  cvv:
+    type: text
+    influence_conversation: false
+  confirm_order:
+    type: text
+    influence_conversation: false
+  plan_detail:
+    type: text
+    influence_conversation: false
+  total_price:
+    type: text
+    influence_conversation: false
+  tax:
+    type: text
+    influence_conversation: false
+
+  
+  
+
+forms:
+  info_form:
+    phone_number:
+    - type: from_text
+      intent: nlu_fallback
+    - type: from_entity
+      entity: number
+    
+    confirm_details_info:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    - intent: affirm
+      value: yes
+      type: from_intent
+    - intent: deny
+      value: no
+      type: from_intent
+    
+  ticket_form:
+    phone_number:
+    - type: from_text
+      intent: nlu_fallback
+    - type: from_entity
+      entity: number
+
+    name:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+
+    email:
+    - type: from_entity
+      entity: email
+    - type: from_text
+      intent: nlu_fallback
+    - type: from_text
+
+    issue_message:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+      
+    confirm_details:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    - intent: affirm
+      value: yes
+      type: from_intent
+    - intent: deny
+      value: no
+      type: from_intent
+  
+  sim_type_form:
+    sim_type:
+    - type: from_entity
+      entity: sim
+    - type: from_text
+      intent: nlu_fallback
+    - intent: sim_select
+      value: e-sim
+      type: from_intent
+    - intent: sim_select
+      value: physical
+      type: from_intent
+  
+    
+    zipcode:
+    - type: from_text
+      intent: nlu_fallback
+    - type: from_entity
+      entity: number
+
+  confirm_sim_selection_form:
+    confirm_sim_type:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    - intent: affirm
+      value: yes
+      type: from_intent
+    - intent: deny
+      value: no
+      type: from_intent
+
+  plan_form:
+    offer:
+    - type: from_entity
+      entity: offers
+    - type: from_text
+      intent: nlu_fallback
+    - intent: offer1_selected
+      value: plan1
+      type: from_intent
+    - intent: offer2_selected
+      value: plan2
+      type: from_intent
+    - intent: offer3_selected
+      value: plan3
+      type: from_intent
+
+  confirm_plan_selection_form:
+    confirm_plan:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    - intent: affirm
+      value: yes
+      type: from_intent
+    - intent: deny
+      value: no
+      type: from_intent
+
+  number_form:
+    number_option:
+    - intent: enter_number
+      value: number
+      type: from_intent
+    - intent: user_change
+      value: new_number
+      type: from_intent
+
+  sim_number_form:
+    sim_number:
+    - type: from_text
+      intent: nlu_fallback
+    - type: from_entity
+      entity: number
+    confirm_sim_number:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    - intent: affirm
+      value: yes
+      type: from_intent
+    - intent: deny
+      value: no
+      type: from_intent
+
+  address_form:
+    buyer_name:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+
+    buyer_email:
+    - type: from_entity
+      entity: email
+    - type: from_text
+      intent: nlu_fallback
+    - type: from_text
+
+    address:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+
+    confirm_address:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    - intent: affirm
+      value: yes
+      type: from_intent
+    - intent: deny
+      value: no
+      type: from_intent
+  bill_form:
+    confirm_bill:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    - intent: affirm
+      value: yes
+      type: from_intent
+    - intent: deny
+      value: no
+      type: from_intent
+  payment_form:
+    card_number:
+    - type: from_text
+      intent: nlu_fallback
+    - type: from_entity
+      entity: number
+    name_on_card:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    expiry:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    cvv:
+    - type: from_text
+      intent: nlu_fallback
+    - type: from_entity
+      entity: number
+    confirm_order:
+    - type: from_text
+    - type: from_text
+      intent: nlu_fallback
+    - intent: affirm
+      value: yes
+      type: from_intent
+    - intent: deny
+      value: no
+      type: from_intent
+    
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_name:
+  - text: "Could you please tell me your name?"
+
+  utter_ask_email:
+  - text: "Can you please provide me your email address?"
+
+  utter_ask_phone_number:
+  - text: "Hi! Can you please provide me your phone number?"
+
+  utter_ask_sim_number:
+  - text: "Enter number"
+
+  utter_ask_sim_type:
+  - buttons:
+    - title: e-SIM
+      payload: e-sim
+    - title: Physical
+      payload: physical
+    text: "Which type of SIM would you like to choose?"
+
+  utter_ask_zipcode:
+  - text: "Enter the Zipcode"
+
+  utter_ask_issue_message:
+  - text: "Please tell me your issue so I can forward that to our team."
+ 
+  utter_ask_confirm_details:
+  - buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+    text: "Are the following details correct?\nName: {name}\nEmail: {email}\nPhone No: {phone_number}\nMessage: {issue_message}"
+  
+  utter_ask_confirm_details_info:
+  - buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+    text: "You wish to continue with number: {phone_number} ?"
+
+  utter_ask_confirm_sim_number:
+  - buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+    text: "Do you wish to continue?"
+
+
+  utter_ask_confirm_sim_type:
+  - buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+    text: "Do you wish to continue?\nSIM type: {sim_type}\nZipcode: {zipcode}\nSIM charges: ${sim_price}"
+
+  utter_ask_confirm_plan:
+  - buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+    text: "Do you wish to continue?\nPlan Name: {plan_detail}\nPlan charges: ${plan_price}"
+
+  utter_menu:
+  - buttons:
+    - title: Balance Enquiry
+      payload: balance_check
+    - title: SIM Log Details
+      payload: transaction
+    - title: Raise Ticket
+      payload: raise_ticket
+    - title: Check Ticket Status
+      payload: ticket_status
+    - title: Buy SIM
+      payload: sim_select
+    text: "Hi! We are here to help you\nGo ahead, Select your issue."
+    
+  utter_menu2:
+  - buttons:
+    - title: Balance Enquiry
+      payload: balance_check
+    - title: SIM Log Details
+      payload: transaction
+    - title: Raise Ticket
+      payload: raise_ticket
+    - title: Check Ticket Status
+      payload: ticket_status
+    - title: Buy SIM
+      payload: sim_select
+    text: "How else may I help you?"
+
+  utter_ask_offer:
+  - buttons:
+    - title: Plan 1
+      payload: plan1
+    - title: Plan 2
+      payload: plan2
+    - title: Plan 3
+      payload: plan3
+    text: "Which plan would you like to choose?"
+
+  utter_ask_number_option:
+  - buttons:
+    - title: Yes,keep my number
+      payload: enter_number
+    - title: No,get a new number
+      payload: user_change
+    text: "Do you want to bring your own number?"
+
+  utter_ask_buyer_name:
+  - text: "Name:"
+
+  utter_ask_buyer_email:
+  - text: "Email:"
+
+  utter_ask_address:
+  - text: "Delivery Address:"
+
+  utter_ask_confirm_address:
+  - buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+    text: "Do you wish to continue?"
+
+  utter_ask_confirm_bill:
+  - buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+    text: "Confirm Details\nYour Number: {sim_number}\nSIM type: {sim_type}\nPlan: {plan_detail}\nName: {buyer_name}\nEmail: {buyer_email}\nAddress: {address}\n{sim_type} Price: ${sim_price}\nPlan Price: ${plan_price}\nTax: ${tax}\nTotal Bill: ${total_price}"
+
+  utter_ask_card_number:
+  - text: "Card Number:"
+
+  utter_ask_name_on_card:
+  - text: "Name on Card:"
+
+  utter_ask_expiry:
+  - text: "Expiry (MM/YY):"
+
+  utter_ask_cvv:
+  - text: "CVV:"
+
+  utter_ask_confirm_order:
+  - buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+    text: "Do you want to place the order?"
+  
+  utter_submit:
+  - text: "\nYou are all set\nYour new number is {sim_number}\nDon't forget to save your new number\nA confirmation email has been sent to you at {buyer_email}"
+   
+actions:
+- action_submit_ticket_form
+- validate_ticket_form
+- action_transaction_enquiry
+- action_submit_info_form
+- validate_info_form
+- action_balance_enquiry
+- action_ticket_status
+- action_change_info
+- action_find_acc
+- validate_sim_type_form
+- action_submit_sim_type_form
+- action_sim_price
+- validate_confirm_sim_selection_form
+- validate_plan_form
+- action_set_price
+- validate_confirm_plan_selection_form
+- action_submit_plan_form
+- validate_number_form
+- action_submit_number_form
+- validate_sim_number_form
+- action_submit_sim_number_form
+- validate_address_form
+- action_submit_address_form
+- validate_bill_form
+- action_submit_bill_form
+- validate_payment_form
+- action_submit_payment_form
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
