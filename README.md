@@ -16,10 +16,6 @@ Database: SQLite / PostgreSQL (Optional for storing user interactions)
 APIs: Integrated for fetching user details and support ticket creation
 🔧 Installation & Setup
 1️⃣ Clone the Repository
-
-bash
-Copy
-Edit
 git clone https://github.com/SohamChakraborty2/customer-care-chatbot.git
 cd customer-care-chatbot
 
@@ -27,9 +23,6 @@ cd customer-care-chatbot
 
 2️⃣ Create a Virtual Environment & Install Dependencies
 
-bash
-Copy
-Edit
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
@@ -39,9 +32,6 @@ pip install -r requirements.txt
 
 3️⃣ Train the Model
 
-bash
-Copy
-Edit
 rasa train
 
 
@@ -49,26 +39,18 @@ rasa train
 
 4️⃣ Run the Chatbot
 
-bash
-Copy
-Edit
 rasa run --enable-api
 
 
 
 5️⃣ Start the Interactive Chat Interface
 
-bash
-Copy
-Edit
 rasa shell
 
 
 
 🏗️ Folder Structure
-bash
-Copy
-Edit
+
 📂 customer-care-chatbot  
 │── 📂 actions/            # Custom action files  
 │── 📂 data/               # Training data (nlu.yml, rules.yml, stories.yml)  
